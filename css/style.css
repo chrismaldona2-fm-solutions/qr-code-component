@@ -8,13 +8,18 @@
 }
 
 :root {
-    font-size: 15px;
-    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0;
 
-    --white: hsl(0, 0%, 100%);
-    --slate-300: hsl(212, 45%, 89%);
-    --slate-500: hsl(220, 15%, 55%);
-    --slate-900: hsl(218, 44%, 22%);
+    --white: #ffffff;
+    --slate-300: #d5e1ef;
+    --slate-500: #68778d;
+    --slate-900: #1f314f;
+
+    --card-shadow: 0 25px 25px rgba(0, 0, 0, .0477);
+
+    --text-preset-1 : 700 22px/120% 'Outfit', sans-serif;
+    --text-preset-2 : 400 15px/140% 'Outfit', sans-serif;
 }
 
 .main {
@@ -25,49 +30,48 @@
 }
 
 .card {
+    width: 90%;
+    max-width: 320px;
     background-color: var(--white);
-    width: min(90%, 330px);
-    padding: 1.2rem 1.2rem 2.5rem 1.2rem;
-    border-radius: 1.6rem;
-    box-shadow: 0px 8px 12px -16px rgba(0,0,0,0.1);
-
+    padding: 16px 16px 40px 16px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 2rem;
 
-    gap: 1.25rem;
+    box-shadow: var(--card-shadow);
     cursor: pointer;
 }
 
-.qr-code {
+.card .image {
     aspect-ratio: 1/1;
+    border-radius: 10px;
     overflow: hidden;
 }
 
-.qr-code img {
+.card .image img {
     width: 100%;
-    border-radius: .8rem;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
-.card-info {
-    overflow: hidden;
+.card .content {
     display: flex;
     flex-direction: column;
     text-align: center;
-    gap: 1.2rem;
-    max-width: 90%;
+    gap: 16px;
+    padding-inline: 16px;
 }
 
-.card-info .title {
-    font-size: 1.5rem;
-    font-weight: 700;
+.card .content .title {
+    font: var(--text-preset-1);
     color: var(--slate-900);
 }
 
 
-.card-info .subtitle {
-    letter-spacing: .5px;
-    font-size: 1rem;
-    font-weight: 400;
+.card .content .subtitle {
+    font: var(--text-preset-2);
     color: var(--slate-500);
 }
